@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+    <style>
+        body{
+            background-image: url(https://img.freepik.com/premium-photo/top-view-blue-calculator-notepad-color-background_260672-4055.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        #calc {
+            width: 500px;
+            height: 400px;
+            background-color: #262b40;
+            text-align: center;
+            margin-left:50px;
+            margin-top: 150px;
+                }
+        .btn {
+            background-color: #59b2f4;
+            height: 3rem;
+            width: 3rem;
+            color:#000;
+        }
+        .btn:hover{
+            color:white;
+            background-color:#262b40 ;
+            border:2px solid  #59b2f4;
+        }
+        input[type="text"] {
+
+            width: 200px;
+            height: 30px;
+        }
+        h1::first-letter{
+            color:#59b2f4;
+        }
+        h1{
+            color:white;
+        }
+    </style>
+</head>
+<body>
+    <div id="calc">
+        <h1>Calculator</h1>
+        <input type="text" id="res"><br><br>
+        <button class="btn" onclick="dis('1')">1</button>
+        <button class="btn" onclick="dis('2')">2</button>
+        <button class="btn" onclick="dis('3')">3</button>
+        <button class="btn" onclick="dis('+')">+</button><br><br>
+        <button class="btn" onclick="dis('4')">4</button>
+        <button class="btn" onclick="dis('5')">5</button>
+        <button class="btn" onclick="dis('6')">6</button>
+        <button class="btn" onclick="dis('-')">-</button><br><br>
+        <button class="btn" onclick="dis('7')">7</button>
+        <button class="btn" onclick="dis('8')">8</button>
+        <button class="btn" onclick="dis('9')">9</button>
+        <button class="btn" onclick="dis('/')">/</button><br><br>
+        <button class="btn" onclick="dis('*')">*</button>
+        <button class="btn" onclick="dis('0')">0</button>       
+        <button class="btn" onclick="solve()">=</button>
+        <button class="btn" onclick="clr()">C</button>
+    </div>
+    <script>
+        function dis(val) {
+            document.getElementById("res").value += val;
+        }
+
+        function solve() {
+            try {
+                let x = document.getElementById("res").value;
+                let y = eval(x);
+                document.getElementById("res").value = y;
+            } catch (e) {
+                document.getElementById("res").value = "Error";
+            }
+        }
+
+        function clr() {
+            document.getElementById("res").value = "";
+        }
+    </script>
+</body>
+</html>
